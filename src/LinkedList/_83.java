@@ -2,16 +2,7 @@ package LinkedList;
 
 import java.util.Scanner;
 
-//import linkedlist.ListNode;
-
-class ListNode {
-	      int val;
-	     ListNode next;
-	      ListNode(int x) { val = x; }
-	  }
-
-
-public class _876 {
+public class _83 {
 	
 	public static ListNode inputLL() {
 		Scanner s = new Scanner(System.in);
@@ -39,30 +30,32 @@ public class _876 {
 		return list2;
 	}
 	
-	public static ListNode middleNode(ListNode head) {
-        
+	public static ListNode removeduplicate(ListNode head) {  
 		ListNode temp = head ;
-		ListNode slow = head ;
-		while(temp!=null)
+		ListNode next = head ;
+		//int i=0 ;
+		while(head.next!=null)
 		{
-			if(temp.next==null)
-				return slow ;
-			else if(temp.next.next==null)
-				return slow.next ;
-			temp = temp.next.next ;
-			slow = slow.next ;
+			if(head.val == head.next.val)
+			{
+				//next = temp.next.next ;
+				head.next = head.next.next ;
+			}
+			else
+				head = head.next ;
 		}
-		return slow ;
+		return temp ;
     }
-	
+
 	public static void main(String[] args) {
-	
-		Scanner s = new Scanner(System.in);
-		
-		ListNode list2 = inputLL() ;
-		list2 = middleNode(list2) ;
-		System.out.println(list2.val);
-		
+		// TODO Auto-generated method stub
+		ListNode list = inputLL() ;
+		list = removeduplicate(list);
+		while(list!=null)
+		{
+			System.out.print(list.val+" ");
+			list = list.next ;
+		}
 	}
-	
+
 }
