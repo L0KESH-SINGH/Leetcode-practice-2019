@@ -2,12 +2,12 @@ package LinkedList;
 
 import java.util.Scanner;
 
-class Node
+class Node2
 {
 	int data;
-	Node next;
+	Node2 next;
 	
-	Node(int d)
+	Node2(int d)
 	{
 		data = d;
 		next = null;
@@ -16,11 +16,11 @@ class Node
 
 public class is_pallindrome {
 	
-	 public static Node inputLL()
+	 public static Node2 inputLL()
 		{
 			Scanner s = new Scanner(System.in);
-			Node list = new Node(0);
-			Node list2 = new Node(0);
+			Node2 list = new Node2(0);
+			Node2 list2 = new Node2(0);
 
 			int i = 0;
 			int h = 0 ;
@@ -32,7 +32,7 @@ public class is_pallindrome {
 					list2 = list;
 					list.data = h;
 				} else {
-					Node temp = new Node(h);
+					Node2 temp = new Node2(h);
 					list.next = temp;
 					list = list.next;
 				}
@@ -42,23 +42,23 @@ public class is_pallindrome {
 			return list2 ;
 		}
 	
-	public static Node reverseList(Node head , Node ans) {
+	public static Node2 reverseList(Node2 head , Node2 ans) {
 	        
 		 if(head == null)
 		 {
 			 return ans ;
 		 }
-		 Node temp = new Node(head.data) ;
+		 Node2 temp = new Node2(head.data) ;
 		 temp.next = ans ;
 		 ans = temp ;
 		 return reverseList(head.next, ans) ;
 		 
 	   }
 	
-	public static boolean isPalindrome(Node head) 
+	public static boolean isPalindrome(Node2 head) 
     {
-       Node temp = head ;
-       Node ans = null ;
+       Node2 temp = head ;
+       Node2 ans = null ;
        ans = reverseList(temp, ans);
        temp = head ;
        while(temp!=null && ans!=null)
@@ -75,7 +75,7 @@ public class is_pallindrome {
 
 	public static void main(String[] args) {
 		
-		Node temp = inputLL() ;
+		Node2 temp = inputLL() ;
 		System.out.println(isPalindrome(temp));
 
 	}
