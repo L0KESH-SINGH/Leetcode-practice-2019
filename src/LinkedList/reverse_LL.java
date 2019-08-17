@@ -2,12 +2,6 @@ package LinkedList;
 
 import java.util.Scanner;
 
-//class ListNode {
-//    int val;
-//   ListNode next;
-//    ListNode(int x) { val = x; }
-//}
-
 public class reverse_LL {
 	
 	 public static ListNode inputLL()
@@ -50,12 +44,26 @@ public class reverse_LL {
 		 
 	   }
 	 
+	 public static ListNode reverseListloop(ListNode head) //better approach
+	 {
+		 ListNode prev = null ;
+		 ListNode curr = head ;
+		 while(curr!=null)
+		 {
+			 ListNode nexttemp = curr.next ;
+			 curr.next = prev ; 
+			 prev = curr ;
+			 curr = nexttemp ;
+		 }
+		 return prev ;
+	 }
 	 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ListNode list = inputLL() ;
 		ListNode ans = null ;
-		list = reverseList(list, ans) ;
+		//list = reverseList(list, ans) ;
+		list = reverseListloop(list);
 		while(list!=null)
 		{
 			System.out.println(list.val);
